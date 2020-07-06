@@ -1,0 +1,30 @@
+    {
+        "_id": "c-05",
+        "_parentId": "b-05",
+        "_type": "component",
+        "_component": "banner",
+        "_classes": "",
+        "_layout": "left",
+        "title": "Here is a graphic object",
+        "displayTitle": "Here is a graphic object",
+        "body": "Hi everybody!",
+        "instruction": "",
+        "_backgroundImage": {
+            "_large": "course/en/images/half-bg-image.png",
+            "_medium": "",
+            "_small": ""
+        },
+        "_backgroundStyles": {
+            "_backgroundSize": "auto",
+            "_backgroundRepeat": "no-repeat",
+            "_backgroundPosition": "center center"
+        },
+        "_minimumHeights": {
+            "_large": 500,
+            "_medium": 0,
+            "_small": 0
+        },
+        "_pageLevelProgress": {
+            "_isEnabled": true
+        }
+    }

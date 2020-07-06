@@ -1,0 +1,16 @@
+{
+  "name": "adapt-banner",
+  "framework": ">=5.5",
+  "version": "0.0.1",
+  "homepage": "https://github.com/kineojen/adapt-banner",
+  "issues": "https://github.com/kineojen/adapt-banner/issues/",
+  "displayName": "Banner",
+  "component": "banner",
+  "description": "Text with configurable background image",
+  "main": "/js/adapt-banner.js",
+  "keywords": [
+    "adapt-plugin",
+    "adapt-component"
+  ],
+  "license": "GPL-3.0"
+}
