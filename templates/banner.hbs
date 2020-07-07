@@ -1,13 +1,14 @@
 <div class="component__inner banner__inner">
-    {{> component this}}
+  {{> component this}}
 
-    <div class="component__widget banner__widget">
+  <div class="component__widget banner__widget">
 
     <div class="banner__image-container">
 
-      <img class="banner__image js-banner-set-image-src" src="{{_graphic.src}}" data-large="{{_graphic.large}}" data-small="{{_graphic.small}}" {{#if _graphic.alt}}aria-label="{{{compile_a11y_normalize _graphic.alt}}}"{{else}}aria-hidden="true"{{/if}}>
+      <img class="banner__image js-banner-set-image-src" src="{{_graphic.src}}" data-large="{{_graphic.large}}" data-medium="{{_graphic.medium}}"data-small="{{_graphic.small}}" {{#if _graphic.alt}}aria-label="{{{compile_a11y_normalize _graphic.alt}}}"{{else}}aria-hidden="true"{{/if}}>
 
     </div>
 
   </div>
+
 </div>
