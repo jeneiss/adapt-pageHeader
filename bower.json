@@ -6,7 +6,7 @@
   "issues": "https://github.com/kineojen/adapt-banner/issues/",
   "displayName": "Banner",
   "component": "banner",
-  "description": "Text with configurable background image",
+  "description": "Text that can be positioned over a configurable background image",
   "main": "/js/adapt-banner.js",
   "keywords": [
     "adapt-plugin",

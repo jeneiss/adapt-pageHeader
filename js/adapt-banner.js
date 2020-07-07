@@ -11,7 +11,7 @@ define([
         "device:changed": this.onDeviceResize,
         "remove": this.remove
       });
-      this.setStyles();
+
     }
 
     postRender() {
@@ -20,44 +20,39 @@ define([
       if (this.model.get('_setCompletionOn') === 'inview') {
         this.setupInviewCompletion();
       }
+
+      this.setImage();
     }
 
     onDeviceResize() {
-      this.setStyles();
+      this.setImage();
     }
 
-    setStyles() {
-      this.setBackgroundImage();
-    }
+    setImage() {
+      const images = this.model.get("_graphic");
 
-    setBackgroundImage() {
-      const currentBlockId = this.model.get("_parentId");
-      const backgroundImages = this.model.get("_backgroundImage");
+      if (!images) return;
 
-      if (!backgroundImages) return;
-
-      let backgroundImage;
+      let image;
 
       switch (Adapt.device.screenSize) {
         case "large":
-          backgroundImage = backgroundImages._large;
+          image = images.large;
           break;
         case "medium":
-          backgroundImage = backgroundImages._medium;
+          image = images.medium;
           break;
         default:
-          backgroundImage = backgroundImages._small;
+          image = images.small;
       }
 
-      if (backgroundImage) {
-        this.$el.parents(`.${currentBlockId}`)
-          .addClass("has-bg-image")
-          .css("background-image", "url(" + backgroundImage + ")");
-      } else {
-        this.$el.parents(`.${currentBlockId}`)
-          .removeClass("has-bg-image")
-          .css("background-image", "");
-      }
+      this.$('.js-banner-set-image-src').attr('src', image);
+
+      this.$('.banner__widget').imageready(function() {
+
+        this.setReadyStatus();
+
+      }.bind(this));
     }
 
     onRemove() {}
