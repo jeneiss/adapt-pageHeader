@@ -11,7 +11,6 @@ define([
         "device:changed": this.onDeviceResize,
         "remove": this.remove
       });
-
     }
 
     postRender() {
@@ -21,11 +20,17 @@ define([
         this.setupInviewCompletion();
       }
 
-      this.setImage();
+      this.setStyles();
     }
 
     onDeviceResize() {
+      this.setStyles();
+    }
+
+    setStyles() {
       this.setImage();
+      this.setMinimumHeight();
+      this.setFullLayoutOptions();
     }
 
     setImage() {
@@ -48,11 +53,56 @@ define([
 
       this.$('.js-banner-set-image-src').attr('src', image);
 
-      this.$('.banner__widget').imageready(function() {
+      this.$('.banner__widget').imageready(() => this.setReadyStatus());
+    }
 
-        this.setReadyStatus();
+    setMinimumHeight() {
+      const minimumHeights = this.model.get("_minimumHeights");
 
-      }.bind(this));
+      if (!minimumHeights) return;
+
+      let minimumHeight;
+
+      switch (Adapt.device.screenSize) {
+        case "large":
+          minimumHeight = minimumHeights._large;
+          break;
+        case "medium":
+          minimumHeight = minimumHeights._medium;
+          break;
+        default:
+          minimumHeight = minimumHeights._small;
+      }
+
+      if (minimumHeight) {
+        this.$el
+          .addClass("has-min-height")
+          .css("min-height", minimumHeight + "px");
+      } else {
+        this.$el
+          .removeClass("has-min-height")
+          .css("min-height", "");
+      }
+    }
+
+    setFullLayoutOptions() {
+      const options = this.model.get("_fullLayoutOptions");
+
+      if (!options) return;
+
+      if (Adapt.device.screenSize === "large") {
+        this.$(".banner__header").css({
+          top: `${options._top}%`,
+          left: `${options._left}%`,
+          width: `${options._width}%`
+        });
+      } else {
+        this.$(".banner__header").css({
+          top: "",
+          left: "",
+          width: ""
+        });
+      }
     }
 
     onRemove() {}
