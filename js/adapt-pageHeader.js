@@ -4,7 +4,7 @@ define([
   'core/js/models/componentModel'
 ], function(Adapt, ComponentView, ComponentModel) {
 
-  class BannerView extends ComponentView {
+  class PageHeaderView extends ComponentView {
 
     preRender() {
       this.listenTo(Adapt, {
@@ -28,12 +28,14 @@ define([
     }
 
     setStyles() {
-      this.setImage();
+      this.setBackgroundImages();
+      // this.setBackgroundStyles();
+      // this.removeBlockPadding();
       this.setMinimumHeight();
       this.setFullLayoutOptions();
     }
 
-    setImage() {
+    setBackgroundImages() {
       const images = this.model.get("_graphic");
 
       if (!images) return;
@@ -50,10 +52,6 @@ define([
         default:
           image = images.small;
       }
-
-      this.$('.js-banner-set-image-src').attr('src', image);
-
-      this.$('.banner__widget').imageready(() => this.setReadyStatus());
     }
 
     setMinimumHeight() {
@@ -108,11 +106,11 @@ define([
     onRemove() {}
   }
 
-  BannerView.template = 'banner';
+  PageHeaderView.template = 'pageHeader';
 
-  return Adapt.register('banner', {
+  return Adapt.register('pageHeader', {
     model: ComponentModel.extend({}),// create a new class in the inheritance chain so it can be extended per component type if necessary later
-    view: BannerView
+    view: PageHeaderView
   });
 
 });

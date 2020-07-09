@@ -1,14 +1,56 @@
-<div class="component__inner banner__inner">
-  {{> component this}}
+{{! make the _globals object in course.json available to this template}}
+{{import_globals}}
 
-  <div class="component__widget banner__widget">
+<div class="pageheader__inner">
 
-    <div class="banner__image-container">
+  {{#any displayTitle subtitle body instruction}}
+  <div class="pageheader__header">
+    <div class="pageheader__header-inner">
 
-      <img class="banner__image js-banner-set-image-src" src="{{_graphic.src}}" data-large="{{_graphic.large}}" data-medium="{{_graphic.medium}}"data-small="{{_graphic.small}}" {{#if _graphic.alt}}aria-label="{{{compile_a11y_normalize _graphic.alt}}}"{{else}}aria-hidden="true"{{/if}}>
+      {{#if displayTitle}}
+      <div class="pageHeader__title">
+
+        {{#unless _disableAccessibilityState}}
+        <div class="js-heading"></div>
+        {{/unless}}
+
+        <div class="pageHeader__title-inner" {{#unless _disableAccessibilityState}}aria-hidden="true"{{/unless}}>
+          {{{compile displayTitle}}}
+        </div>
+
+      </div>
+      {{/if}}
+
+      {{#if subtitle}}
+      <div class="pageHeader__subtitle">
+        <div class="pageHeader__subtitle-inner">
+          {{{compile subtitle}}}
+        </div>
+      </div>
+      {{/if}}
+
+      {{#any body pageBody}}
+      <div class="pageHeader__body">
+        <div class="pageHeader__body-inner">
+          {{#if pageBody}}
+          {{{compile pageBody}}}
+          {{else}}
+          {{{compile body}}}
+          {{/if}}
+        </div>
+      </div>
+      {{/any}}
+
+      {{#if instruction}}
+      <div class="pageHeader__instruction">
+        <div class="pageHeader__instruction-inner">
+          {{{compile instruction}}}
+        </div>
+      </div>
+      {{/if}}
 
     </div>
-
   </div>
+  {{/any}}
 
 </div>
