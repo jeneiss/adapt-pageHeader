@@ -1,2 +1,2 @@
-# adapt-banner
-A banner component
+# adapt-pageHeader
+A pageHeader component
