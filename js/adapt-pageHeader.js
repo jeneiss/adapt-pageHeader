@@ -88,7 +88,7 @@ define([
     setFullLayoutOptions() {
       const options = this.model.get("_fullLayoutOptions");
 
-      if (!options) return;
+      if (!options || this.model.get("_layout") !== "full") return;
 
       if (Adapt.device.screenSize === "large") {
         this.$(".banner__header").css({

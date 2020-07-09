@@ -1,13 +1,13 @@
 {
-  "name": "adapt-banner",
+  "name": "adapt-pageHeader",
   "framework": ">=5.5",
   "version": "0.0.1",
   "homepage": "https://github.com/kineojen/adapt-banner",
   "issues": "https://github.com/kineojen/adapt-banner/issues/",
-  "displayName": "Banner",
-  "component": "banner",
+  "displayName": "pageHeader",
+  "component": "pageHeader",
   "description": "Text that can be positioned over a configurable background image",
-  "main": "/js/adapt-banner.js",
+  "main": "/js/adapt-pageHeader.js",
   "keywords": [
     "adapt-plugin",
     "adapt-component"
