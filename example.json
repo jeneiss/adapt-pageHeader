@@ -1,30 +1,32 @@
     {
-        "_id": "c-05",
-        "_parentId": "b-05",
+        "_id": "c-00",
+        "_parentId": "b-00",
         "_type": "component",
-        "_component": "banner",
+        "_component": "pageHeader",
         "_classes": "",
         "_layout": "left",
-        "title": "Here is a graphic object",
-        "displayTitle": "Here is a graphic object",
-        "body": "Hi everybody!",
-        "instruction": "",
+        "title": "Here is a page header object",
+        "displayTitle": "Here is a page header object",
+        "body": "In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus.",
+        "instruction": "Test instruction",
         "_backgroundImage": {
-            "_large": "course/en/images/half-bg-image.png",
-            "_medium": "",
-            "_small": ""
+            "_large": "course/en/images/bg-large.jpg",
+            "_medium": "course/en/images/bg-medium.jpg",
+            "_small": "course/en/images/bg-small.jpg"
         },
         "_backgroundStyles": {
-            "_backgroundSize": "auto",
-            "_backgroundRepeat": "no-repeat",
-            "_backgroundPosition": "center center"
+            "_backgroundSize": "cover",
+            "_backgroundRepeat": "repeat",
+            "_backgroundPosition": "center top"
         },
         "_minimumHeights": {
-            "_large": 500,
-            "_medium": 0,
-            "_small": 0
+            "_large": 654,
+            "_medium": 654,
+            "_small": 400
         },
+        "_extendComponentContainer": true,
         "_pageLevelProgress": {
-            "_isEnabled": true
-        }
+            "_isEnabled": false
+        },
+        "_isOptional": true
     }

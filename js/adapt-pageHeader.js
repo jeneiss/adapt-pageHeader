@@ -20,6 +20,7 @@ define([
 
       this.setStyles();
       this.extendComponentContainer();
+      this.removeBlockPadding();
     }
 
     onDeviceResize() {
@@ -110,7 +111,13 @@ define([
 
       this.$el.parents(".block__inner")
         .css({
-          maxWidth: "100%",
+          maxWidth: "100%"
+        })
+    }
+
+    removeBlockPadding() {
+      this.$el.parents(".block__inner")
+        .css({
           padding: 0
         })
     }
