@@ -30,27 +30,37 @@ define([
     setStyles() {
       this.setBackgroundImages();
       // this.setBackgroundStyles();
-      // this.removeBlockPadding();
+      // this.extendComponentContainer();
       this.setMinimumHeight();
-      this.setFullLayoutOptions();
+      // this.setFullLayoutOptions();
     }
 
     setBackgroundImages() {
-      const images = this.model.get("_graphic");
+      const backgroundImages = this.model.get("_backgroundImage");
 
-      if (!images) return;
+      if (!backgroundImages) return;
 
-      let image;
+      let backgroundImage;
 
       switch (Adapt.device.screenSize) {
         case "large":
-          image = images.large;
+          backgroundImage = backgroundImages._large;
           break;
         case "medium":
-          image = images.medium;
+          backgroundImage = backgroundImages._medium;
           break;
         default:
-          image = images.small;
+          backgroundImage = backgroundImages._small;
+      }
+
+      if (backgroundImage) {
+        this.$el.parent()
+          .addClass("has-bg-image")
+          .css("background-image", `url(${backgroundImage})`);
+      } else {
+        this.$el.parent()
+          .removeClass("has-bg-image")
+          .css("background-image", "");
       }
     }
 
@@ -75,7 +85,7 @@ define([
       if (minimumHeight) {
         this.$el
           .addClass("has-min-height")
-          .css("min-height", minimumHeight + "px");
+          .css("min-height", `${minimumHeight}px`);
       } else {
         this.$el
           .removeClass("has-min-height")
@@ -83,25 +93,25 @@ define([
       }
     }
 
-    setFullLayoutOptions() {
-      const options = this.model.get("_fullLayoutOptions");
+    // setFullLayoutOptions() {
+    //   const options = this.model.get("_fullLayoutOptions");
 
-      if (!options || this.model.get("_layout") !== "full") return;
+    //   if (!options || this.model.get("_layout") !== "full") return;
 
-      if (Adapt.device.screenSize === "large") {
-        this.$(".banner__header").css({
-          top: `${options._top}%`,
-          left: `${options._left}%`,
-          width: `${options._width}%`
-        });
-      } else {
-        this.$(".banner__header").css({
-          top: "",
-          left: "",
-          width: ""
-        });
-      }
-    }
+    //   if (Adapt.device.screenSize === "large") {
+    //     this.$(".banner__header").css({
+    //       top: `${options._top}%`,
+    //       left: `${options._left}%`,
+    //       width: `${options._width}%`
+    //     });
+    //   } else {
+    //     this.$(".banner__header").css({
+    //       top: "",
+    //       left: "",
+    //       width: ""
+    //     });
+    //   }
+    // }
 
     onRemove() {}
   }
