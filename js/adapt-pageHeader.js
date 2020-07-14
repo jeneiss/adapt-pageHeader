@@ -21,6 +21,7 @@ define([
       }
 
       this.setStyles();
+      this.extendComponentContainer();
     }
 
     onDeviceResize() {
@@ -29,10 +30,8 @@ define([
 
     setStyles() {
       this.setBackgroundImages();
-      // this.setBackgroundStyles();
-      // this.extendComponentContainer();
+      this.setBackgroundStyles();
       this.setMinimumHeight();
-      // this.setFullLayoutOptions();
     }
 
     setBackgroundImages() {
@@ -54,11 +53,11 @@ define([
       }
 
       if (backgroundImage) {
-        this.$el.parent()
+        this.$el.parent(".component__container")
           .addClass("has-bg-image")
           .css("background-image", `url(${backgroundImage})`);
       } else {
-        this.$el.parent()
+        this.$el.parent(".component__container")
           .removeClass("has-bg-image")
           .css("background-image", "");
       }
@@ -93,25 +92,32 @@ define([
       }
     }
 
-    // setFullLayoutOptions() {
-    //   const options = this.model.get("_fullLayoutOptions");
+    setBackgroundStyles() {
+      const backgroundStyles = this.model.get("_backgroundStyles");
 
-    //   if (!options || this.model.get("_layout") !== "full") return;
+      if (!backgroundStyles) return;
 
-    //   if (Adapt.device.screenSize === "large") {
-    //     this.$(".banner__header").css({
-    //       top: `${options._top}%`,
-    //       left: `${options._left}%`,
-    //       width: `${options._width}%`
-    //     });
-    //   } else {
-    //     this.$(".banner__header").css({
-    //       top: "",
-    //       left: "",
-    //       width: ""
-    //     });
-    //   }
-    // }
+      this.$el.parent(".component__container")
+        .css({
+          backgroundSize: backgroundStyles._backgroundSize,
+          backgroundRepeat: backgroundStyles._backgroundRepeat,
+          backgroundPosition: backgroundStyles._backgroundPosition
+        });
+    }
+
+    extendComponentContainer() {
+      const extend = this.model.get("_extendComponentContainer");
+
+      if (!extend) return;
+
+      this.$el.parents(".block__inner")
+        .css({
+          maxWidth: "100%",
+          padding: 0
+        })
+
+    }
+
 
     onRemove() {}
   }
