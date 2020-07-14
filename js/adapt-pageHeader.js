@@ -16,9 +16,7 @@ define([
     postRender() {
       this.setReadyStatus();
 
-      if (this.model.get('_setCompletionOn') === 'inview') {
-        this.setupInviewCompletion();
-      }
+      this.setupInviewCompletion(".pageheader__header");
 
       this.setStyles();
       this.extendComponentContainer();
@@ -115,9 +113,7 @@ define([
           maxWidth: "100%",
           padding: 0
         })
-
     }
-
 
     onRemove() {}
   }
