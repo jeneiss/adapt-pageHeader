@@ -51,12 +51,14 @@ define([
           backgroundImage = backgroundImages._small;
       }
 
+      const parent = this.$el.parent(".component__container");
+
       if (backgroundImage) {
-        this.$el.parent(".component__container")
+        parent
           .addClass("has-bg-image")
           .css("background-image", `url(${backgroundImage})`);
       } else {
-        this.$el.parent(".component__container")
+        parent
           .removeClass("has-bg-image")
           .css("background-image", "");
       }
@@ -110,16 +112,12 @@ define([
       if (!extend) return;
 
       this.$el.parents(".block__inner")
-        .css({
-          maxWidth: "100%"
-        })
+        .css({ maxWidth: "100%" })
     }
 
     removeBlockPadding() {
       this.$el.parents(".block__inner")
-        .css({
-          padding: 0
-        })
+        .css({ padding: 0 })
     }
 
     onRemove() {}
