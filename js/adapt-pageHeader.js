@@ -28,39 +28,45 @@ define([
     }
 
     setStyles() {
-      this.setBackgroundImages();
+      this.setImages();
       this.setBackgroundStyles();
       this.setMinimumHeight();
     }
 
-    setBackgroundImages() {
-      const backgroundImages = this.model.get("_backgroundImage");
+    setImages() {
+      const images = this.model.get("_image");
+      const isImg = this.model.get("_textBelowImage");
 
-      if (!backgroundImages) return;
+      if (!images) return;
 
-      let backgroundImage;
+      let image;
 
       switch (Adapt.device.screenSize) {
         case "large":
-          backgroundImage = backgroundImages._large;
+          image = images._large;
           break;
         case "medium":
-          backgroundImage = backgroundImages._medium;
+          image = images._medium;
           break;
         default:
-          backgroundImage = backgroundImages._small;
+          image = images._small;
       }
 
       const parent = this.$el.parent(".component__container");
 
-      if (backgroundImage) {
+      if (image && !isImg) {
         parent
           .addClass("has-bg-image")
-          .css("background-image", `url(${backgroundImage})`);
+          .css("background-image", `url(${image})`);
       } else {
         parent
           .removeClass("has-bg-image")
           .css("background-image", "");
+      }
+
+      if (isImg) {
+        this.$(".js-pageheader-image").attr("src", image);
+        this.$el.addClass("has-text-below-image");
       }
     }
 

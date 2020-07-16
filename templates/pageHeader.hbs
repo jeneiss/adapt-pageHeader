@@ -3,6 +3,12 @@
 
 <div class="pageheader__inner">
 
+  {{#if _textBelowImage}}
+  <div class="pageheader__image-container">
+    <img class="pageheader__image js-pageheader-image" />
+  </div>
+  {{/if}}
+
   {{#any displayTitle subtitle body instruction}}
   <div class="pageheader__header">
     <div class="pageheader__header-inner">
