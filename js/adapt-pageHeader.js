@@ -18,22 +18,16 @@ define([
 
       this.setupInviewCompletion(".pageheader__header");
 
-      this.setStyles();
+      this.processImages();
       this.extendComponentContainer();
       this.removeBlockPadding();
     }
 
     onDeviceResize() {
-      this.setStyles();
+      this.processImages();
     }
 
-    setStyles() {
-      this.setImages();
-      this.setBackgroundStyles();
-      this.setMinimumHeight();
-    }
-
-    setImages() {
+    processImages() {
       const images = this.model.get("_image");
       const isImg = this.model.get("_textBelowImage");
 
@@ -52,7 +46,19 @@ define([
           image = images._small;
       }
 
-      if (image && !isImg) {
+      isImg ? this.setImage(image) : this.setBackgroundImage(image);
+    }
+
+    setImage(image) {
+      this.$(".js-pageheader-image").attr("src", image);
+      this.$el.addClass("has-text-below-image");
+    }
+
+    setBackgroundImage(image) {
+      this.setBackgroundStyles();
+      this.setMinimumHeight();
+
+      if (image) {
         this.$el
           .addClass("has-bg-image")
           .css("background-image", `url(${image})`);
@@ -60,11 +66,6 @@ define([
         this.$el
           .removeClass("has-bg-image")
           .css("background-image", "");
-      }
-
-      if (isImg) {
-        this.$(".js-pageheader-image").attr("src", image);
-        this.$el.addClass("has-text-below-image");
       }
     }
 
