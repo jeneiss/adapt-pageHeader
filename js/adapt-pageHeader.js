@@ -52,14 +52,12 @@ define([
           image = images._small;
       }
 
-      const parent = this.$el.parent(".component__container");
-
       if (image && !isImg) {
-        parent
+        this.$el
           .addClass("has-bg-image")
           .css("background-image", `url(${image})`);
       } else {
-        parent
+        this.$el
           .removeClass("has-bg-image")
           .css("background-image", "");
       }
@@ -104,7 +102,7 @@ define([
 
       if (!backgroundStyles) return;
 
-      this.$el.parent(".component__container")
+      this.$el
         .css({
           backgroundSize: backgroundStyles._backgroundSize,
           backgroundRepeat: backgroundStyles._backgroundRepeat,
