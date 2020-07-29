@@ -1,7 +1,13 @@
 .pageheader {
-  &:not(.has-text-below-image) {
-    &__inner {
-      .l-container-padding(@block-padding-ver, @block-padding-hoz);
+  &.has-bg-image {
+    display: flex;
+
+    &.text-align-vert-center {
+      align-items: center;
+    }
+
+    &.text-align-vert-bottom {
+      align-items: flex-end;
     }
   }
 
@@ -10,8 +16,4 @@
   }
 }
 
-//custom classes for vertical alignment
-//custom classes for horizontal alignment (flex it all)
-//@pageheader-background and @pageheader-background-inverted classes
-//https://github.com/cgkineo/adapt-footer/blob/master/less/footer.less
-//Is it possible to have an image above text (implemented but maybe needs a refactor)
+//make this AAT ready
