@@ -55,21 +55,23 @@ define([
     }
 
     setBackgroundImage(image) {
-      this.setBackgroundStyles();
-      this.setMinimumHeight();
+      const parent = this.$el.parent(".component__container");
+
+      this.setBackgroundStyles(parent);
+      this.setMinimumHeight(parent);
 
       if (image) {
-        this.$el
+        parent
           .addClass("has-bg-image")
           .css("background-image", `url(${image})`);
       } else {
-        this.$el
+        parent
           .removeClass("has-bg-image")
           .css("background-image", "");
       }
     }
 
-    setMinimumHeight() {
+    setMinimumHeight(parent) {
       const minimumHeights = this.model.get("_minimumHeights");
 
       if (!minimumHeights) return;
@@ -88,22 +90,22 @@ define([
       }
 
       if (minimumHeight) {
-        this.$el
+        parent
           .addClass("has-min-height")
           .css("min-height", `${minimumHeight}px`);
       } else {
-        this.$el
+        parent
           .removeClass("has-min-height")
           .css("min-height", "");
       }
     }
 
-    setBackgroundStyles() {
+    setBackgroundStyles(parent) {
       const backgroundStyles = this.model.get("_backgroundStyles");
 
       if (!backgroundStyles) return;
 
-      this.$el
+      parent
         .css({
           backgroundSize: backgroundStyles._backgroundSize,
           backgroundRepeat: backgroundStyles._backgroundRepeat,

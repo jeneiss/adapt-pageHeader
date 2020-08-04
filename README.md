@@ -1,2 +1,4 @@
 # adapt-pageHeader
-A pageHeader component
+pageHeader is a presentation component that can be used in place of the theme page header functionality.
+
+

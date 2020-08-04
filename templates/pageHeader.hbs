@@ -5,7 +5,7 @@
 
   {{#if _textBelowImage}}
   <div class="pageheader__image-container">
-    <img class="pageheader__image js-pageheader-image" />
+    <img class="pageheader__image js-pageheader-image" {{#if _image.alt}}alt="{{_image.alt}}"{{/if}}/>
   </div>
   {{/if}}
 

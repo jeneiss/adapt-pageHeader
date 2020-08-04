@@ -4,15 +4,20 @@
         "_type": "component",
         "_component": "pageHeader",
         "_classes": "",
-        "_layout": "left",
+        "_layout": "full",
+        "subtitle": "Subtitle vivamus elementum semper",
         "title": "Here is a page header object",
         "displayTitle": "Here is a page header object",
         "body": "In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus.",
-        "instruction": "Test instruction",
-        "_backgroundImage": {
+        "instruction": "instruction",
+        "_extendComponentContainer": false,
+        "_textBelowImageComment": "_backgroundStyles and _minimumHeights are only used when _textBelowImage is set to false",
+        "_textBelowImage": false,
+        "_image": {
             "_large": "course/en/images/bg-large.jpg",
             "_medium": "course/en/images/bg-medium.jpg",
-            "_small": "course/en/images/bg-small.jpg"
+            "_small": "course/en/images/bg-small.jpg",
+            "alt": "Placeholder image"
         },
         "_backgroundStyles": {
             "_backgroundSize": "cover",
@@ -24,7 +29,6 @@
             "_medium": 654,
             "_small": 400
         },
-        "_extendComponentContainer": true,
         "_pageLevelProgress": {
             "_isEnabled": false
         },
