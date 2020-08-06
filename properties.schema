@@ -30,10 +30,28 @@
       "help": "This is the instruction text",
       "translatable": true
     },
-    "_graphic": {
-      "type": "object",
+    "_extendComponentContainer": {
+      "type": "boolean",
       "required": true,
-      "title": "Graphic",
+      "default": "false",
+      "title": "Extend Component Container",
+      "inputType": "checkbox",
+      "validators": [],
+      "help": "When true, image container is extended to page width. When false, image container is confined to default component width."
+    },
+    "_textBelowImage": {
+      "type": "boolean",
+      "required": true,
+      "default": "false",
+      "title": "Text Below Image",
+      "inputType": "checkbox",
+      "validators": [],
+      "help": "When true, text appears below an <img> tag. When false, text appears over background image."
+    }
+    "_backgroundImage": {
+      "type": "object",
+      "required": false,
+      "legend": "Page background image",
       "properties": {
         "alt": {
           "type": "string",
@@ -60,15 +78,68 @@
           "inputType": "Asset:image",
           "validators": ["required"],
           "help": "The small sized image for mobile devices"
-        },
-        "attribution": {
+        }
+      }
+    },
+    "_backgroundStyles": {
+      "type": "object",
+      "required": false,
+      "legend": "Page background image styles",
+      "properties": {
+        "_backgroundRepeat": {
           "type": "string",
           "required": false,
           "default": "",
-          "inputType": "Text",
-          "validators": [],
-          "help": "Text to be displayed as an attribution",
-          "translatable": true
+          "inputType": {"type":"Select", "options":["repeat","repeat-x","repeat-y","no-repeat"]},
+          "title": "Set if/how the background image repeats",
+          "help": "Repeat-x: The background image is repeated only horizontally. Repeat-y: The background image is repeated only vertically."
+        },
+        "_backgroundSize": {
+          "type": "string",
+          "required": false,
+          "default": "",
+          "inputType": {"type":"Select", "options":["auto","cover","contain"]},
+          "title": "Set the size of the background image",
+          "help": "Auto: The background image is displayed in its original size. Cover: Resize the background image to cover the entire container, even if it has to stretch or crop the image. Contain: Resize the background image to make sure the image is fully visible."
+        },
+        "_backgroundPosition": {
+          "type": "string",
+          "required": false,
+          "default": "",
+          "inputType": {"type":"Select", "options":["left top","left center","left bottom","center top","center center","center bottom","right top","right center","right bottom"]},
+          "title": "Set the position of the background image",
+          "help": "The first value is the horizontal position and the second value is the vertical."
+        }
+      }
+    },
+    "_minimumHeights": {
+      "type": "object",
+      "required": false,
+      "legend": "Page header minimum height",
+      "properties": {
+        "_large": {
+          "type": "number",
+          "required": false,
+          "default": "",
+          "inputType": "Number",
+          "validators": ["number"],
+          "help": "Minimum height should only be used in instances where the page header height needs to be greater than the content e.g. to prevent a background image being cropped"
+        },
+        "_medium": {
+          "type": "number",
+          "required": false,
+          "default": "",
+          "inputType": "Number",
+          "validators": ["number"],
+          "help": "Minimum height should only be used in instances where the page header height needs to be greater than the content e.g. to prevent a background image being cropped"
+        },
+        "_small": {
+          "type": "number",
+          "required": false,
+          "default": "",
+          "inputType": "Number",
+          "validators": ["number"],
+          "help": "Minimum height should only be used in instances where the page header height needs to be greater than the content e.g. to prevent a background image being cropped"
         }
       }
     }
