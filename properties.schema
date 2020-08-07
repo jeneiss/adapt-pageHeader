@@ -33,25 +33,25 @@
     "_extendComponentContainer": {
       "type": "boolean",
       "required": true,
-      "default": "false",
-      "title": "Extend Component Container",
-      "inputType": "checkbox",
+      "default": false,
+      "title": "Extend Component Container?",
+      "inputType": "Checkbox",
       "validators": [],
-      "help": "When true, image container is extended to page width. When false, image container is confined to default component width."
+      "help": "When true, image container is extended to block width. When false, image container is confined to component width."
     },
-    "_textBelowImage": {
+    "_hasTextBelowImage": {
       "type": "boolean",
       "required": true,
-      "default": "false",
-      "title": "Text Below Image",
-      "inputType": "checkbox",
+      "default": false,
+      "title": "Text Below Image?",
+      "inputType": "Checkbox",
       "validators": [],
       "help": "When true, text appears below an <img> tag. When false, text appears over background image."
-    }
+    },
     "_backgroundImage": {
       "type": "object",
       "required": false,
-      "legend": "Page background image",
+      "legend": "Header background image",
       "properties": {
         "alt": {
           "type": "string",
@@ -65,18 +65,26 @@
         },
         "large": {
           "type": "string",
-          "required": true,
+          "required": false,
           "default": "",
           "inputType": "Asset:image",
-          "validators": ["required"],
+          "validators": [],
           "help": "The large sized image for desktop devices"
+        },
+        "medium": {
+          "type": "string",
+          "required": false,
+          "default": "",
+          "inputType": "Asset:image",
+          "validators": [],
+          "help": "The small sized image for mobile devices"
         },
         "small": {
           "type": "string",
-          "required": true,
+          "required": false,
           "default": "",
           "inputType": "Asset:image",
-          "validators": ["required"],
+          "validators": [],
           "help": "The small sized image for mobile devices"
         }
       }
@@ -84,7 +92,7 @@
     "_backgroundStyles": {
       "type": "object",
       "required": false,
-      "legend": "Page background image styles",
+      "legend": "Header background image styles",
       "properties": {
         "_backgroundRepeat": {
           "type": "string",

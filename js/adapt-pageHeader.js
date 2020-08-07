@@ -29,7 +29,7 @@ define([
 
     processImages() {
       const images = this.model.get("_image");
-      const isImg = this.model.get("_textBelowImage");
+      const isImg = this.model.get("_hasTextBelowImage");
 
       if (!images) return;
 

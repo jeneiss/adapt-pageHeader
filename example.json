@@ -11,8 +11,8 @@
         "body": "In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus.",
         "instruction": "instruction",
         "_extendComponentContainer": false,
-        "_textBelowImageComment": "_backgroundStyles and _minimumHeights are only used when _textBelowImage is set to false",
-        "_textBelowImage": false,
+        "_hasTextBelowImageComment": "_backgroundStyles and _minimumHeights are only used when _textBelowImage is set to false",
+        "_hasTextBelowImage": false,
         "_image": {
             "_large": "course/en/images/bg-large.jpg",
             "_medium": "course/en/images/bg-medium.jpg",
