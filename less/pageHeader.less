@@ -1,6 +1,9 @@
 .pageheader {
   &.has-bg-image {
     display: flex;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center top;
 
     &.text-align-vert-center {
       align-items: center;
@@ -16,4 +19,33 @@
   }
 }
 
-//make this AAT ready
+//----------------------
+// Theme
+//----------------------
+.pageheader {
+  &__title {
+    margin-bottom: @page-title-margin;
+    .page-title;
+    color: @heading-color;
+  }
+
+  &__subtitle {
+    margin-bottom: @page-subtitle-margin;
+    .page-subtitle;
+  }
+
+  &__body {
+    margin-bottom: @page-body-margin;
+    .page-body;
+  }
+
+  &__instruction {
+    margin-bottom: @page-instruction-margin;
+    .page-instruction;
+  }
+
+  &__body a,
+  &__instruction a {
+    .link-text;
+  }
+}

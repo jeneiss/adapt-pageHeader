@@ -14,13 +14,13 @@
     <div class="pageheader__header-inner">
 
       {{#if displayTitle}}
-      <div class="pageHeader__title">
+      <div class="pageheader__title">
 
         {{#unless _disableAccessibilityState}}
         <div class="js-heading" data-a11y-heading-type="page"></div>
         {{/unless}}
 
-        <div class="pageHeader__title-inner" {{#unless _disableAccessibilityState}}aria-hidden="true"{{/unless}}>
+        <div class="pageheader__title-inner" {{#unless _disableAccessibilityState}}aria-hidden="true"{{/unless}}>
           {{{compile displayTitle}}}
         </div>
 
@@ -28,16 +28,16 @@
       {{/if}}
 
       {{#if subtitle}}
-      <div class="pageHeader__subtitle">
-        <div class="pageHeader__subtitle-inner">
+      <div class="pageheader__subtitle">
+        <div class="pageheader__subtitle-inner">
           {{{compile subtitle}}}
         </div>
       </div>
       {{/if}}
 
       {{#any body pageBody}}
-      <div class="pageHeader__body">
-        <div class="pageHeader__body-inner">
+      <div class="pageheader__body">
+        <div class="pageheader__body-inner">
           {{#if pageBody}}
           {{{compile pageBody}}}
           {{else}}
@@ -48,8 +48,8 @@
       {{/any}}
 
       {{#if instruction}}
-      <div class="pageHeader__instruction">
-        <div class="pageHeader__instruction-inner">
+      <div class="pageheader__instruction">
+        <div class="pageheader__instruction-inner">
           {{{compile instruction}}}
         </div>
       </div>
