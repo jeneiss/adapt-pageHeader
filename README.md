@@ -1,10 +1,9 @@
 # adapt-pageHeader
 
-**pageHeader** is a *presentation component* that can be used at the top of a page to .
-
+**pageHeader** is a *presentation component* that can be used at the top of a page to provide page header functionality (text and image or background image).
 
 ### When to use
-Use **pageHeader** in place of the built-in theme page header functionallity for both the Framework and the Authoring Tool. Use with the built-in v5 custom class 'hide-page-header'.
+Use **pageHeader** in place of the built-in theme page header functionallity for both the Framework and the Authoring Tool. Use with the built-in v5 theme class 'hide-page-header'.
 
 ## Settings Overview
 
