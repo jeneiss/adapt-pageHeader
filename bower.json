@@ -1,6 +1,6 @@
 {
   "name": "adapt-pageHeader",
-  "framework": ">=5.5",
+  "framework": ">=5.3",
   "version": "1.0.0",
   "homepage": "https://github.com/kineojen/adapt-pageHeader",
   "issues": "https://github.com/kineojen/adapt-pageHeader/issues/",
