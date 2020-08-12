@@ -29,22 +29,12 @@ define([
 
     processImages() {
       const images = this.model.get("_image");
-      const isImg = this.model.get("_hasTextBelowImage");
 
       if (!images) return;
 
-      let image;
+      const isImg = this.model.get("_hasTextBelowImage");
 
-      switch (Adapt.device.screenSize) {
-        case "large":
-          image = images._large;
-          break;
-        case "medium":
-          image = images._medium;
-          break;
-        default:
-          image = images._small;
-      }
+      const image = images[`_${Adapt.device.screenSize}`];
 
       isImg ? this.setImage(image) : this.setBackgroundImage(image);
     }
@@ -55,57 +45,35 @@ define([
     }
 
     setBackgroundImage(image) {
-      const parent = this.$el.parent(".component__container");
+      const $parent = this.$el.parent(".component__container");
 
-      this.setBackgroundStyles(parent);
-      this.setMinimumHeight(parent);
+      this.setBackgroundStyles($parent);
+      this.setMinimumHeight($parent);
 
-      if (image) {
-        parent
-          .addClass("has-bg-image")
-          .css("background-image", `url(${image})`);
-      } else {
-        parent
-          .removeClass("has-bg-image")
-          .css("background-image", "");
-      }
+      $parent
+        .toggleClass("has-bg-image", Boolean(image))
+        .toggleClass("pageheader__container", Boolean(image))
+        .css("background-image", image ? `url(${image})` : "");
     }
 
-    setMinimumHeight(parent) {
+    setMinimumHeight($parent) {
       const minimumHeights = this.model.get("_minimumHeights");
 
       if (!minimumHeights) return;
 
-      let minimumHeight;
+      const minimumHeight = minimumHeights[`_${Adapt.device.screenSize}`];
 
-      switch (Adapt.device.screenSize) {
-        case "large":
-          minimumHeight = minimumHeights._large;
-          break;
-        case "medium":
-          minimumHeight = minimumHeights._medium;
-          break;
-        default:
-          minimumHeight = minimumHeights._small;
-      }
-
-      if (minimumHeight) {
-        parent
-          .addClass("has-min-height")
-          .css("min-height", `${minimumHeight}px`);
-      } else {
-        parent
-          .removeClass("has-min-height")
-          .css("min-height", "");
-      }
+      $parent
+        .toggleClass("has-min-height", Boolean(minimumHeight))
+        .css("min-height", minimumHeight ? `${minimumHeight}px` : "");
     }
 
-    setBackgroundStyles(parent) {
+    setBackgroundStyles($parent) {
       const backgroundStyles = this.model.get("_backgroundStyles");
 
       if (!backgroundStyles) return;
 
-      parent
+      $parent
         .css({
           backgroundSize: backgroundStyles._backgroundSize,
           backgroundRepeat: backgroundStyles._backgroundRepeat,
@@ -118,13 +86,11 @@ define([
 
       if (!extend) return;
 
-      this.$el.parents(".block__inner")
-        .css({ maxWidth: "100%" })
+      this.$el.parents(".block__inner").css("maxWidth", "100%");
     }
 
     removeBlockPadding() {
-      this.$el.parents(".block__inner")
-        .css({ padding: 0 })
+      this.$el.parents(".block__inner").css("padding", 0);
     }
 
     onRemove() {}
