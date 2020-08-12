@@ -3,6 +3,7 @@
         "_parentId": "b-00",
         "_type": "component",
         "_component": "pageHeader",
+        "_classesComment": "Predefined classes: text-align-vert center || text-align-vert-bottom",
         "_classes": "",
         "_layout": "full",
         "subtitle": "Subtitle vivamus elementum semper",
