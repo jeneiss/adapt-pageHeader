@@ -1,23 +1,17 @@
 .pageheader {
-  &.has-bg-image {
-    display: flex;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center top;
+  &.text-align-vert-center {
+    align-self: center;
+  }
 
-    &.text-align-vert-center {
-      align-items: center;
-    }
-
-    &.text-align-vert-bottom {
-      align-items: flex-end;
-    }
+  &.text-align-vert-bottom {
+    align-self: flex-end;
   }
 
   &__header-inner {
     .l-container-padding(@block-padding-ver, @block-padding-hoz);
   }
 }
+
 
 //----------------------
 // Theme
