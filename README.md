@@ -34,9 +34,9 @@ The attributes listed below are used in *components.json* to configure **pageHea
 
 >**small** (string): File name (including path) of the image used with small device width. Path should be relative to the *src* folder (e.g., *course/en/images/origami-menu-two.jpg*).
 
->**alt** (string): This text becomes the image’s `alt` attribute. Only used when `\_hasTextBelowImage: true`.
+>**alt** (string): This text becomes the image’s `alt` attribute. Only used when `"_hasTextBelowImage": true`.
 
-**_backgroundStyles** (object): Additional attributes available to customise how background images display. The backgroundStyles object contains values for **\_backgroundRepeat**, **\_backgroundSize** and **\_backgroundPosition**.
+**_backgroundStyles** (object): Additional attributes available to customise how background images display. **Only used when `"_hasTextBelowImage": false`.** The backgroundStyles object contains values for **\_backgroundRepeat**, **\_backgroundSize** and **\_backgroundPosition**.
 
 >**\_backgroundRepeat** (string): This attribute defines how the background image repeats. Properties include **repeat**, **repeat-x**, **repeat-y** and **no-repeat**.
 Repeat-x: The background image is repeated only horizontally. Repeat-y: The background image is repeated only vertically.
@@ -44,7 +44,7 @@ Repeat-x: The background image is repeated only horizontally. Repeat-y: The back
 >**\_backgroundSize** (string): This attribute defines the size the background image display. Properties include **auto**, **cover** and **contain**.
 Auto: The background image is displayed in its original size. Cover: Resize the background image to cover the entire container, even if it has to stretch or crop the image. Contain: Resize the background image to make sure the image is fully visible.
 
-**_minimumHeights** (object): The minimum heights attribute group specifies the minimum height of the image container at different device widths (`_large`, `_medium`, and `_small`).
+**_minimumHeights** (object): The minimum heights attribute group specifies the minimum height of the image container at different device widths (`_large`, `_medium`, and `_small`).  **Only used when `"_hasTextBelowImage": false`.**
 
 >**\_large** (number): The minimum height should only be used in instances where the image container height needs to be greater than the content e.g. to prevent a background image being cropped.
 
@@ -54,12 +54,15 @@ Auto: The background image is displayed in its original size. Cover: Resize the 
 
 ### Pre-defined classes
 
+**text-align-vert-center**: Vertically aligns component to center in component container. **Only used when `"_hasTextBelowImage": false`.**
+
+**text-align-vert-bottom**: Vertically aligns component to bottom in component container. **Only used when `"_hasTextBelowImage": false`.**
 
 
 ----------------------------
-**Version number:**  2.0.0  
-**Framework versions:**  5.2+  
-**Vanilla versions:**  5.1.1+  
+**Version number:**  1.0.0  
+**Framework versions:**  5.3+  
+**Vanilla versions:**  5.2+  
 **Author / maintainer:**  Kineo  
 **Accessibility support:**  WAI AA  
 **RTL support:**  Yes  
