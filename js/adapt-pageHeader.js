@@ -51,8 +51,7 @@ define([
       this.setMinimumHeight($parent);
 
       $parent
-        .toggleClass("has-bg-image", Boolean(image))
-        .toggleClass("pageheader__container", Boolean(image))
+        .toggleClass(["has-bg-image", "pageheader__container"], Boolean(image))
         .css("background-image", image ? `url(${image})` : "");
     }
 
